@@ -1,0 +1,242 @@
+@font-face {
+  font-family: 'avis-icons';
+  src: url("fonts/avis-icons.eot?ql8401");
+  src: url("fonts/avis-icons.eot?ql8401#iefix") format("embedded-opentype"), url("fonts/avis-icons.ttf?ql8401") format("truetype"), url("fonts/avis-icons.woff?ql8401") format("woff"), url("fonts/avis-icons.svg?ql8401#avis-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block; }
+
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'avis-icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-reload:before {
+  content: "\e949"; }
+
+.icon-city-secondary:before {
+  content: "\e948"; }
+
+.icon-history:before {
+  content: "\e946"; }
+
+.icon-information:before {
+  content: "\e947"; }
+
+.icon-add-picture:before {
+  content: "\e945"; }
+
+.icon-refresh:before {
+  content: "\e944"; }
+
+.icon-add-photo:before {
+  content: "\e943"; }
+
+.icon-corporate:before {
+  content: "\e93f"; }
+
+.icon-car-maintenance:before {
+  content: "\e93d"; }
+
+.icon-car-repair:before {
+  content: "\e93e"; }
+
+.icon-tyre:before {
+  content: "\e940"; }
+
+.icon-radar:before {
+  content: "\e941"; }
+
+.icon-hgs:before {
+  content: "\e942"; }
+
+.icon-trash:before {
+  content: "\e93a"; }
+
+.icon-group:before {
+  content: "\e93b"; }
+
+.icon-invoice:before {
+  content: "\e93c"; }
+
+.icon-print:before {
+  content: "\e939"; }
+
+.icon-error-circle:before {
+  content: "\e938"; }
+
+.icon-plus:before {
+  content: "\e936"; }
+
+.icon-minus:before {
+  content: "\e937"; }
+
+.icon-navigation:before {
+  content: "\e931"; }
+
+.icon-child-seat:before {
+  content: "\e932"; }
+
+.icon-disability:before {
+  content: "\e933"; }
+
+.icon-car-crash:before {
+  content: "\e934"; }
+
+.icon-car-insurance:before {
+  content: "\e935"; }
+
+.icon-question-circle:before {
+  content: "\e930"; }
+
+.icon-eye:before {
+  content: "\e92f"; }
+
+.icon-zoom:before {
+  content: "\e92e"; }
+
+.icon-rotate:before {
+  content: "\e92d"; }
+
+.icon-human-pin:before {
+  content: "\e92c"; }
+
+.icon-empty:before {
+  content: "\e92b"; }
+
+.icon-copy:before {
+  content: "\e92a"; }
+
+.icon-business-man:before {
+  content: "\e929"; }
+
+.icon-star:before {
+  content: "\e925"; }
+
+.icon-month:before {
+  content: "\e926"; }
+
+.icon-turkish-lira:before {
+  content: "\e927"; }
+
+.icon-car-time:before {
+  content: "\e928"; }
+
+.icon-airport:before {
+  content: "\e923"; }
+
+.icon-city:before {
+  content: "\e924"; }
+
+.icon-car-pin:before {
+  content: "\e922"; }
+
+.icon-error:before {
+  content: "\e921"; }
+
+.icon-edit:before {
+  content: "\e920"; }
+
+.icon-up-and-down:before {
+  content: "\e91f"; }
+
+.icon-question:before {
+  content: "\e91e"; }
+
+.icon-target:before {
+  content: "\e91d"; }
+
+.icon-people:before {
+  content: "\e914"; }
+
+.icon-small-bag:before {
+  content: "\e915"; }
+
+.icon-big-bag:before {
+  content: "\e916"; }
+
+.icon-airbag:before {
+  content: "\e917"; }
+
+.icon-abs:before {
+  content: "\e918"; }
+
+.icon-road:before {
+  content: "\e919"; }
+
+.icon-calendar:before {
+  content: "\e91a"; }
+
+.icon-driver:before {
+  content: "\e91b"; }
+
+.icon-credit-card:before {
+  content: "\e91c"; }
+
+.icon-check:before {
+  content: "\e913"; }
+
+.icon-comment:before {
+  content: "\e910"; }
+
+.icon-support:before {
+  content: "\e911"; }
+
+.icon-reservation:before {
+  content: "\e912"; }
+
+.icon-sign-in:before {
+  content: "\e90f"; }
+
+.icon-call:before {
+  content: "\e905"; }
+
+.icon-user:before {
+  content: "\e90d"; }
+
+.icon-hamburger-menu:before {
+  content: "\e90e"; }
+
+.icon-search:before {
+  content: "\e90c"; }
+
+.icon-instagram:before {
+  content: "\e906"; }
+
+.icon-pinterest:before {
+  content: "\e907"; }
+
+.icon-facebook:before {
+  content: "\e908"; }
+
+.icon-twitter:before {
+  content: "\e909"; }
+
+.icon-linkedin:before {
+  content: "\e90a"; }
+
+.icon-youtube:before {
+  content: "\e90b"; }
+
+.icon-close:before {
+  content: "\e904"; }
+
+.icon-arrow-down:before {
+  content: "\e900"; }
+
+.icon-arrow-up:before {
+  content: "\e901"; }
+
+.icon-arrow-left:before {
+  content: "\e902"; }
+
+.icon-arrow-right:before {
+  content: "\e903"; }
