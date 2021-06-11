@@ -1,6 +1,9 @@
 body{
-color:red;
+ color:red;
   background-color: yellow;
+  .deneme2{
+    color:blue;
+  }
 }
 
 .deneme{
@@ -8,7 +11,9 @@ color:red;
   background-color: yellow;
   color:blue;
   display: grid;
-
   position: sticky;
   overflow-scrolling: touch;
+}
+.deneme3{
+  color:pink;
 }
