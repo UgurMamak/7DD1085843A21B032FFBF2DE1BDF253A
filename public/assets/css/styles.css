@@ -1,12 +1,16 @@
 body {
   color: red;
   background-color: yellow; }
+  body .deneme2 {
+    color: blue; }
 
 .deneme {
   font-size: 12px;
   background-color: yellow;
   color: blue;
   display: grid;
-  position: -webkit-sticky;
   position: sticky;
   overflow-scrolling: touch; }
+
+.deneme3 {
+  color: pink; }
