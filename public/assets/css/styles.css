@@ -2,7 +2,8 @@ body {
   color: red;
   background-color: yellow; }
   body .deneme2 {
-    color: blue; }
+    color: blue;
+    font-size: 12px; }
 
 .deneme {
   font-size: 12px;

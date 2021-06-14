@@ -133,10 +133,15 @@
 
 
 //gulp new version
-const gulp = require('gulp');
-const htmlExtend = require('gulp-html-extend');
-const sass = require('gulp-sass');
+const gulp = require('gulp'),
+    htmlExtend = require('gulp-html-extend'),
+    sass = require('gulp-sass'),
+    babel = require('gulp-babel'),
+    concat = require('gulp-concat');
+//uglify=require('gulp-uglify');
 
+
+const BABEL_POLYFILL = 'node_modules/babel-polyfill/dist/polyfill.js';
 
 function views(cb) {
     cb();
@@ -146,14 +151,31 @@ function views(cb) {
 }
 
 function styles(cb) {
-    console.log("irdi");
     cb();
-    return gulp.src('./src/styles/styles.scss').pipe(sass().on('error', sass.logError))
+    return gulp.src('./src/styles/styles.scss')
+        .pipe(sass().on('error', sass.logError))
+
+        //.pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest('./public/assets/css'));
+}
+
+function scripts(cb) {
+    cb();
+    return gulp.src(
+        [BABEL_POLYFILL,
+            './src/scripts/scripts.js'
+        ])
+        .pipe(concat('scripts.js'))
+        .pipe(babel({
+            presets: ['@babel/preset-env']
+        }))
+        .pipe(gulp.dest('./public/assets/js'))
+
 }
 
 
 exports.default = function () {
     gulp.watch('./src/views/*.html', views);
     gulp.watch('./src/styles/*.scss', gulp.series(styles));
+    gulp.watch('./src/scripts/scripts.js', gulp.series(scripts))
 }
