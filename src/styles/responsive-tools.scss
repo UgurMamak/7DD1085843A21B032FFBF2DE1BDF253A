@@ -1,0 +1,96 @@
+$breakPointXS: 0;
+$breakPointSM: 576px;
+$breakPointMD: 768px;
+$breakPointLG: 992px;
+$breakPointXL: 1200px;
+$breakPointXXL: 1440px;
+
+@function split-str($string, $separator) {
+
+  $index: str-index($string, $separator);
+
+  @if ($index == null) {
+    @return $string;
+  }
+
+  $str-1: str-slice($string, 1, $index - 1);
+  $str-2: str-slice($string, $index + 1);
+
+  @return $str-1 $str-2;
+}
+
+$breakPoints: (
+        xs: (
+                max: $breakPointSM,
+        ),
+        sm: (
+                min: $breakPointSM,
+                max: $breakPointMD
+        ),
+        md: (
+                min: $breakPointMD,
+                max: $breakPointLG
+        ),
+        lg: (
+                min: $breakPointLG,
+                max: $breakPointXL
+        ),
+        xl: (
+                min: $breakPointXL,
+                max: $breakPointXXL
+        ),
+        xxl: (
+                min: $breakPointXXL
+        )
+) !default;
+
+@mixin responsive($breakpoint) {
+  $splittedText: split-str($breakpoint, '-');
+
+  @if (length($splittedText) > 1) {
+
+    $type: nth($splittedText, 1);
+    $break: nth($splittedText, 2);
+    $points: map-get($breakPoints, $break);
+
+    @if ($type == 'min') {
+      $min: map-get($points, min);
+
+      @media (min-width: $min) {
+        @content;
+      }
+
+    } @else {
+      $max: map-get($points, max);
+
+      @media (max-width: ($max - 1)) {
+        @content;
+      }
+    }
+  } @else {
+    $points: map-get($breakPoints, $splittedText);
+    $min: map-get($points, min);
+    $max: map-get($points, max);
+
+    @if ($min == null) {
+      @media (max-width: ($max - 1)) {
+        @content;
+      }
+    } @else if ($max == null) {
+      @media (min-width: $min) {
+        @content;
+      }
+    } @else {
+      @media (min-width: $min) and (max-width: ($max - 1)) {
+        @content;
+      }
+    }
+
+  }
+}
+
+@mixin responsive-custom($minWidth, $maxWidth) {
+  @media (min-width: $minWidth) and (max-width: $maxWidth) {
+    @content;
+  }
+}

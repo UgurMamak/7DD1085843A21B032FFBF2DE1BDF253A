@@ -1,18 +1,11 @@
-module.exports={
+module.exports = {
+    styles: [
+            '/icon-fonts/style.css'
+        ]
 
-    //components
-    components:{
-        styles:{
-            files:[
-                '/avis-icons/style.css'
-            ],
-            name:'components.css'
-
-        },
-        scripts:{
-            files:[],
-            name:'components.js'
-        }
-
+    ,
+    scripts: {
+        files: [],
+        name: 'components.js'
     }
 }
