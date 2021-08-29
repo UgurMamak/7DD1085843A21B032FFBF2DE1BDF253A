@@ -59,34 +59,6 @@ function scripts(cb) {
 
 }
 
-/*gulp.task('components', function(){
-
-    // Styles
-    gulp.src(config.components.styles.files.map(function(path){ return directory.components.concat(path); }))
-        .pipe(sass().on('error', sass.logError))
-        .pipe(merger({
-            destination: directory.destination.styles
-        }))
-        .pipe(concat(config.components.styles.concat))
-        .pipe(gulp.dest(directory.destination.styles))
-        // Production
-        .pipe(gulpIgnore.exclude(!argv.production))
-        .pipe(cleanCSS({ compatibility: 'ie8' }))
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest(directory.destination.styles));
-
-    // Scripts
-    gulp.src([directory.scripts.concat('/bootstrap/bootstrap.js'), ...config.components.scripts.files.map(function(path){ return directory.components.concat(path); })])
-        .pipe(concat(config.components.scripts.concat))
-        .pipe(gulp.dest(directory.destination.scripts))
-        // Production
-        .pipe(gulpIgnore.exclude(!argv.production))
-        .pipe(uglify())
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest(directory.destination.scripts));
-
-});*/
-
 
 function components(){
     console.log("here");
@@ -98,8 +70,8 @@ function components(){
 
 exports.default = function () {
     gulp.task(components());
-    gulp.watch('./src/views/*.html', views);
-    gulp.watch('./src/styles/*.scss', gulp.series(styles));
+    gulp.watch('./src/views/**/*.html', views);
+    gulp.watch('./src/styles/**/*.scss', gulp.series(styles));
     gulp.watch('./src/styles/*.css', gulp.series(styles));
     gulp.watch('./src/scripts/scripts.js', gulp.series(scripts));
 }

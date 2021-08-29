@@ -1,0 +1,37 @@
+.primary-radio-btn {
+  position: relative;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid $color-concrete;
+  cursor: pointer;
+
+  &.active {
+    border-color: $color-japanese-laurel;
+  }
+
+  input {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .title {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .content {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+
+    .short-info {
+      font-size: 12px;
+    }
+
+    .price {
+      font-weight: bold;
+    }
+
+  }
+
+}

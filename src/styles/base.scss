@@ -1,20 +1,149 @@
-body{
- color:red;
-  background-color: yellow;
-  .deneme2{
-    color:blue;
-    font-size: 12px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+.primary-btn {
+  padding: 10px;
+  border-radius: 6px;
+  background-color: $color-deep-sapphire;
+  color: #ffffff;
+  border: none;
+  transition: ease all .3s;
+
+  &:hover {
+    background-color: $color-denim;
+  }
+
+}
+
+.primary-datepicker {
+  display: flex;
+  align-items: center;
+
+  input{
+    width: 100%;
+  }
+
+  .icon{
+    padding-left: 10px;
+  }
+
+}
+
+.input-group {
+  margin-bottom: 16px;
+
+  &.has-error {
+    .primary-datepicker {
+      input {
+        border-color: red;
+      }
+
+      .icon {
+        color: red;
+      }
+    }
+
+    .primary-select2 {
+      &.select2-selection {
+        border-color: red;
+      }
+    }
+
+    .error {
+      color: red;
+    }
+
+    .input-control{
+      border-color: red !important;
+    }
+
+    .primary-radio-btn{
+      border-color: red;
+    }
+
   }
 }
 
-.deneme{
-  font-size: 12px;
-  background-color: yellow;
-  color:blue;
-  display: grid;
-  position: sticky;
-  overflow-scrolling: touch;
+.input-group-wrap{
+  display: flex;
+
+  .input-group{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 16px;
+    border: 1px solid #000000;
+  }
 }
-.deneme3{
-  color:pink;
+
+.result-wrap{
+
+  .result{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 20px;
+    border: 1px solid $color-concrete;
+  }
+
+  .btn-list{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    @include responsive(min-md){
+      flex-direction: row;
+    }
+
+    .primary-btn{
+      margin-bottom: 10px;
+
+      @include responsive(min-md){
+        margin-bottom: 0;
+        margin-left: 10px;
+      }
+
+    }
+
+  }
+
+  .result-icon{
+      font-size: 50px;
+      color:$color-japanese-laurel;
+
+  }
+  .result-title{
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .result-desc{
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: center;
+  }
 }
+
+
+.choices {
+  width: 100%;
+  margin-bottom: 16px;
+
+  .choices__inner {
+  }
+
+  .choices__input{
+    display: block !important;
+    visibility: hidden;
+    position: absolute;
+  }
+
+}
+
+

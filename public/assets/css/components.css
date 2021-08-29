@@ -19,6 +19,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+.icon-credit-card-chip:before {
+  content: "\e906"; }
+
 .icon-datepicker:before {
   content: "\e904"; }
 
