@@ -41,6 +41,51 @@
     </div>
     <div class="section-content">
 <!-- start primary-step.html-->
+<script>
+    window.hotelData={
+        hotelName:['Bosphorus Hotel','Big Istanbul Hotel','Dela Hotel','Aegean Hotel','Lara Hotel','Bodrum Hotel','Visnezade Istanbul Hotel','Konak Istanbul Hotel','Dardania Hotel','Alanya Hotel'],
+        odaTipi:[
+            {
+                name:'Standart',
+                img:'https://teknasyon-mailling.s3.eu-central-1.amazonaws.com/challenge/frontend/img/1-standart.jpg',
+                content:'5 Gün - 1 Yetişkin',
+                price:'5.635TL'
+            }, {
+                name:'Deluxue',
+                img:'https://teknasyon-mailling.s3.eu-central-1.amazonaws.com/challenge/frontend/img/1-deluxe.jpg',
+                content:'5 Gün - 1 Yetişkin',
+                price:'13.235TL'
+            },
+            {
+                name:'Standart',
+                img:'https://teknasyon-mailling.s3.eu-central-1.amazonaws.com/challenge/frontend/img/1-suit.jpg',
+                content:'5 Gün - 1 Yetişkin',
+                price:'50.210TL'
+            }
+        ],
+        manzaraTipi:[
+            {
+                name:'Kara Manzaralı',
+                img:'https://teknasyon-mailling.s3.eu-central-1.amazonaws.com/challenge/frontend/img/land-view.jpg',
+                content:'Fiyat Etki Oranı',
+                price:'+1%'
+            },
+            {
+                name:'Havuz Manzaralı',
+                img:'https://teknasyon-mailling.s3.eu-central-1.amazonaws.com/challenge/frontend/img/pool-view.jpg',
+                content:'Fiyat Etki Oranı',
+                price:'+15%'
+            },
+            {
+                name:'Deniz Manzaralı',
+                img:'https://teknasyon-mailling.s3.eu-central-1.amazonaws.com/challenge/frontend/img/sea-view.jpg',
+                content:'Fiyat Etki Oranı',
+                price:'+38%'
+            }
+        ]
+    }
+</script>
+
 <div class="primary-step-wrapper" data-toggle="stepWrap" id="stepWrap">
     <div class="result-wrap" v-show="result" v-cloak>
         <div class="result">
@@ -94,7 +139,7 @@
                     <div class="summary-card">
                         <div class="cart-info d-flex flex-column align-items-center">
                             <span class="cart-info-title">Oda Tipi</span>
-                            <span class="cart-info-value">{{form.odaTipi}}</span>
+                            <span class="cart-info-value">{{form.odaTipi.name}}</span>
                         </div>
                     </div>
                 </div>
@@ -102,7 +147,7 @@
                     <div class="summary-card">
                         <div class="cart-info d-flex flex-column align-items-center">
                             <span class="cart-info-title">Manzara Tipi</span>
-                            <span class="cart-info-value">{{form.manzaraTipi}}</span>
+                            <span class="cart-info-value">{{form.manzaraTipi.name}}</span>
                         </div>
                     </div>
                 </div>
@@ -112,14 +157,14 @@
                             <ul>
                                 <li>
                                     <span class="cart-info-title">Oda Fiyatı</span>
-                                    <span class="cart-info-value">1.127 TL</span>
+                                    <span class="cart-info-value">{{form.odaTipi.price}}</span>
                                 </li>
                                 <li>
                                     <span class="cart-info-title">Fiyat Etki Oranı</span>
-                                    <span class="cart-info-value">%38</span>
+                                    <span class="cart-info-value">{{form.manzaraTipi.price}}</span>
                                 </li>
                                 <li>
-                                    <span class="cart-info-title">Konaklama (5 Gün)</span>
+                                    <span class="cart-info-title">Konaklama ({{dateDiff}} Gün)</span>
                                     <span class="cart-info-value">5.635TL</span>
                                 </li>
                                 <li>
@@ -158,43 +203,32 @@
                 <div class="input-group">
                     <select class="primary-select2" name="hotelName" id="hotelName"  v-model="form.hotelName" required data-msg-required="Otel Seçilmedi"
                             data-placeholder="Rezervasyon yapmak istediğiniz Oteli seçiniz.">
-
-                     <!--   <option :value="item" v-for="item in hotelData">{{item}}</option>-->
-                        <option value="Bosphorus Hotel">Bosphorus Hotel</option>
-                        <option value="Big Istanbul Hotel">Big Istanbul Hotel</option>
-                        <option value="Dela Hotel">Dela Hotel</option>
-                        <option value="Aegean Hotel">Aegean Hotel</option>
-                        <option value="Lara Hotel">Lara Hotel</option>
-                        <option value="Bodrum Hotel">Bodrum Hotel</option>
-                        <option value="Visnezade Istanbul Hotel">Visnezade Istanbul Hotel</option>
-                        <option value="Konak Istanbul Hotel">Konak Istanbul Hotel</option>
-                        <option value="Dardania Hotel">Dardania Hotel</option>
-                        <option value="Alanya Hotel">Alanya Hotel</option>
+                        <option :value="item" v-for="item in hotelData.hotelName">{{item}}</option>
                     </select>
                 </div>
                 <div class="input-group-wrap flex-column flex-md-row">
                     <div class="input-group">
-                        <span class="desc">Giriş Tarihi</span>
+                        <span class="field-desc">Giriş Tarihi</span>
                         <label class="primary-datepicker">
-                            <input type="text" name="entryDate" autocomplete="off" id="entryDate" v-model="form.entryDate" required data-msg-required="Giriş Tarihi Seçilmedi">
+                            <input type="text" class="input-control" name="entryDate" autocomplete="off" id="entryDate" v-model="form.entryDate" required data-msg-required="Giriş Tarihi Seçilmedi">
                             <i class="icon icon-calendar"></i>
                         </label>
                     </div>
                     <div class="input-group">
-                        <span class="desc">Çıkış Tarihi</span>
+                        <span class="field-desc">Çıkış Tarihi</span>
                         <label class="primary-datepicker">
-                            <input type="text" name="releaseDate" autocomplete="off" id="releaseDate" v-model="form.releaseDate" required data-msg-required="Çıkış Tarihi Seçilmedi">
+                            <input type="text" class="input-control" name="releaseDate" autocomplete="off" id="releaseDate" v-model="form.releaseDate" required data-msg-required="Çıkış Tarihi Seçilmedi">
                             <i class="icon icon-calendar"></i>
                         </label>
                     </div>
                     <div class="input-group">
-                        <span class="desc">Yetişkin Sayısı</span>
+                        <span class="field-desc">Yetişkin Sayısı</span>
                         <input type="number" class="input-control" name="adultCount" id="adultCount" v-model="form.adultCount" max="5" min="0" data-msg-required="Yetişkin Sayısı Eklenmedi"
                                data-msg-max="5'den büyük sayı giremezsiniz"
                                data-msg-min="0'dan küçük değer giremezsiniz" required>
                     </div>
                     <div class="input-group">
-                        <span class="desc">Çocuk Sayısı</span>
+                        <span class="field-desc">Çocuk Sayısı</span>
                         <input type="number" class="input-control" name="childCount" id="childCount" v-model="form.childCount" max="3" min="0" data-msg-required="Çocuk Sayısı Eklenmedi"
                                data-msg-max="3'den büyük sayı giremezsiniz"
                                data-msg-min="0'dan küçük değer giremezsiniz" required>
@@ -216,67 +250,24 @@
             </div>
             <h5 class="item-title">Oda Tipi Seçimi</h5>
             <div data-wrap="radioList" class="row">
-                <div class="col-md-4">
+                <div class="col-md-4" v-for="item in hotelData.odaTipi">
                     <div class="input-group">
                         <label class="primary-radio-btn">
-                            <input type="radio" name="odaTipi" v-model="form.odaTipi" value="Standart" required>
-                            <h6 class="title">Standart</h6>
+                            <input type="radio" name="odaTipi" v-model="form.odaTipi" :value="item.name" @change="selectRadio(item,$event)" required>
+                            <h6 class="title">{{item.name}}</h6>
                             <div class="img-media">
                                 <img class="img-fluid"
-                                     src="https://teknasyon-mailling.s3.eu-central-1.amazonaws.com/challenge/frontend/img/1-standart.jpg"
+                                     :src="item.img"
                                      alt="">
                             </div>
                             <div class="content">
                                 <div class="d-flex flex-column">
-                                    <span class="short-info">5 Gün</span>
-                                    <span class="short-info">1 Yetişkin</span>
+                                    <span class="short-info">{{item.content}}</span>
+                                   <!-- <span class="short-info">5 Gün</span>
+                                    <span class="short-info">1 Yetişkin</span>-->
                                 </div>
                                 <div>
-                                    <span class="price">5.635 TL</span>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="input-group">
-                        <label class="primary-radio-btn">
-                            <input type="radio" name="odaTipi" v-model="form.odaTipi" value="Deluxe" required>
-                            <h6 class="title">Deluxe</h6>
-                            <div class="img-media">
-                                <img class="img-fluid"
-                                     src="https://teknasyon-mailling.s3.eu-central-1.amazonaws.com/challenge/frontend/img/1-deluxe.jpg"
-                                     alt="">
-                            </div>
-                            <div class="content">
-                                <div class="d-flex flex-column">
-                                    <span class="short-info">5 Gün</span>
-                                    <span class="short-info">1 Yetişkin</span>
-                                </div>
-                                <div>
-                                    <span class="price">5.635 TL</span>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="input-group">
-                        <label class="primary-radio-btn">
-                            <input type="radio" name="odaTipi" v-model="form.odaTipi" value="Suit" required>
-                            <h6 class="title">Suit</h6>
-                            <div class="img-media">
-                                <img class="img-fluid"
-                                     src="https://teknasyon-mailling.s3.eu-central-1.amazonaws.com/challenge/frontend/img/1-suit.jpg"
-                                     alt="">
-                            </div>
-                            <div class="content">
-                                <div class="d-flex flex-column">
-                                    <span class="short-info">5 Gün</span>
-                                    <span class="short-info">1 Yetişkin</span>
-                                </div>
-                                <div>
-                                    <span class="price">5.635 TL</span>
+                                    <span class="price">{{item.price}}</span>
                                 </div>
                             </div>
                         </label>
@@ -286,71 +277,28 @@
 
             <h5 class="item-title">Manzara Seçimi</h5>
             <div data-wrap="radioList" class="row">
-                <div class="col-md-4">
+                <div class="col-md-4" v-for="item in hotelData.manzaraTipi">
                     <div class="input-group">
                         <label class="primary-radio-btn">
-                            <input type="radio" name="manzaraTipi" v-model="form.manzaraTipi" value="Kara Manzaralı" required>
-                            <h6 class="title">Kara Manzaralı</h6>
+                            <input type="radio" name="manzaraTipi" v-model="form.manzaraTipi" @change="selectRadio(item,$event)" :value="item.name" required>
+                            <h6 class="title">{{item.name}}</h6>
                             <div class="img-media">
                                 <img class="img-fluid"
-                                     src="https://teknasyon-mailling.s3.eu-central-1.amazonaws.com/challenge/frontend/img/land-view.jpg"
+                                     :src="item.img"
                                      alt="">
                             </div>
                             <div class="content">
                                 <div class="d-flex flex-column">
-                                    <span class="short-info">Fiyat Etki Oranı</span>
+                                    <span class="short-info">{{item.content}}</span>
                                 </div>
                                 <div>
-                                    <span class="price">+1%</span>
+                                    <span class="price">{{item.price}}</span>
                                 </div>
                             </div>
                         </label>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="input-group">
-                        <label class="primary-radio-btn">
-                            <input type="radio" name="manzaraTipi" v-model="form.manzaraTipi" value="Havuz Manzaralı" required>
-                            <h6 class="title">Havuz Manzaralı</h6>
-                            <div class="img-media">
-                                <img class="img-fluid"
-                                     src="https://teknasyon-mailling.s3.eu-central-1.amazonaws.com/challenge/frontend/img/pool-view.jpg"
-                                     alt="">
-                            </div>
-                            <div class="content">
-                                <div class="d-flex flex-column">
-                                    <span class="short-info">5 Gün</span>
-                                    <span class="short-info">1 Yetişkin</span>
-                                </div>
-                                <div>
-                                    <span class="price">5.635 TL</span>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="input-group">
-                        <label class="primary-radio-btn">
-                            <input type="radio" name="manzaraTipi" v-model="form.manzaraTipi" value="Deniz Manzaralı" required>
-                            <h6 class="title">Deniz Manzaralı</h6>
-                            <div class="img-media">
-                                <img class="img-fluid"
-                                     src="https://teknasyon-mailling.s3.eu-central-1.amazonaws.com/challenge/frontend/img/sea-view.jpg"
-                                     alt="">
-                            </div>
-                            <div class="content">
-                                <div class="d-flex flex-column">
-                                    <span class="short-info">5 Gün</span>
-                                    <span class="short-info">1 Yetişkin</span>
-                                </div>
-                                <div>
-                                    <span class="price">5.635 TL</span>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
+
             </div>
         </div>
         <div class="step-body" v-show="activeStep===3">
@@ -362,15 +310,30 @@
                                 <div class="mb-3"><b>Credit</b>Card</div>
                                 <div class="bank-name"><b>BANK</b></div>
                                 <i class="icon icon-credit-card-chip"></i>
-                                <div class="card-number">{{form.cardNumber}}</div>
-                                <div class="card-holder-name">{{form.cardHolderName}}</div>
-                                <div class="date">{{form.expirationMonth}}/{{form.expirationYear}}</div>
+                                <div class="card-number">
+                                    <span v-if="form.cardNumber">{{form.cardNumber}}</span>
+                                    <span v-else>#### #### #### ####</span>
+                                </div>
+                                <div class="card-holder-name">
+                                    <span v-if="form.cardHolderName">{{form.cardHolderName}}</span>
+                                    <span v-else>##### ####</span>
+                                </div>
+
+                                <div class="date">
+                                    <span v-if="form.expirationMonth">{{form.expirationMonth}}</span>
+                                    <span v-else>##</span>/
+                                    <span v-if="form.expirationYear">{{form.expirationYear}}</span>
+                                    <span v-else>##</span>
+                                </div>
                                 <img class="img-fluid bank-icon" src="assets/img/mc_symbol.svg" width="70" height="70" alt="">
                             </div>
                             <div class="back">
                                 <div class="card-cvv">
                                     <div class="card-strip"></div>
-                                    <div class="cvv-text">{{form.cvv}}</div>
+                                    <div class="cvv-text">
+                                        <span v-if="form.cvv">{{form.cvv}}</span>
+                                        <span v-else>###</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -483,7 +446,7 @@
                                 <div class="summary-card">
                                     <div class="cart-info d-flex flex-column align-items-center">
                                         <span class="cart-info-title">Oda Tipi</span>
-                                        <span class="cart-info-value">{{form.odaTipi}}</span>
+                                        <span class="cart-info-value">{{form.odaTipi.name}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -491,7 +454,7 @@
                                 <div class="summary-card">
                                     <div class="cart-info d-flex flex-column align-items-center">
                                         <span class="cart-info-title">Manzara</span>
-                                        <span class="cart-info-value">{{form.manzaraTipi}}</span>
+                                        <span class="cart-info-value">{{form.manzaraTipi.name}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -509,14 +472,14 @@
                                         <ul>
                                             <li>
                                                 <span class="cart-info-title">Oda Fiyatı</span>
-                                                <span class="cart-info-value">1.127 TL</span>
+                                                <span class="cart-info-value">{{form.odaTipi.price}}</span>
                                             </li>
                                             <li>
                                                 <span class="cart-info-title">Fiyat Etki Oranı</span>
-                                                <span class="cart-info-value">%38</span>
+                                                <span class="cart-info-value">{{form.manzaraTipi.price}}</span>
                                             </li>
                                             <li>
-                                                <span class="cart-info-title">Konaklama (5 Gün)</span>
+                                                <span class="cart-info-title">Konaklama ({{dateDiff}} Gün)</span>
                                                 <span class="cart-info-value">5.635TL</span>
                                             </li>
                                             <li>

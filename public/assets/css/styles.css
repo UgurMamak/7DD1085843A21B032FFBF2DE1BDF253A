@@ -26,7 +26,15 @@
     padding-left: 10px; }
 
 .input-group {
-  margin-bottom: 16px; }
+  margin-bottom: 16px;
+  display: flex; }
+  .input-group .field-desc {
+    margin-bottom: 10px; }
+  .input-group .input-control {
+    width: 100%;
+    height: 40px;
+    border-width: 1px;
+    border-color: #073763; }
   .input-group.has-error .primary-datepicker input {
     border-color: red; }
   .input-group.has-error .primary-datepicker .icon {
@@ -84,14 +92,6 @@
   margin-top: 10px;
   font-size: 16px;
   text-align: center; }
-
-.choices {
-  width: 100%;
-  margin-bottom: 16px; }
-  .choices .choices__input {
-    display: block !important;
-    visibility: hidden;
-    position: absolute; }
 
 .primary-section {
   border: 1px solid #f2f2f2; }
@@ -325,9 +325,14 @@
           font-size: 26px; } }
     .payment-wrap .payment-card .front .card-holder-name {
       margin-bottom: 10px;
-      font-size: 16px; }
+      font-size: 16px;
+      max-width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
       @media (min-width: 768px) {
         .payment-wrap .payment-card .front .card-holder-name {
+          max-width: 255px;
           font-size: 20px; } }
     .payment-wrap .payment-card .front .bank-icon {
       position: absolute;
@@ -368,12 +373,3 @@
     background-color: #ffffff;
     padding: 0 5px;
     font-weight: bold; }
-  .payment-wrap .payment-form-container .input-group {
-    display: flex; }
-    .payment-wrap .payment-form-container .input-group .field-desc {
-      margin-bottom: 10px; }
-    .payment-wrap .payment-form-container .input-group .input-control {
-      width: 100%;
-      height: 40px;
-      border-width: 1px;
-      border-color: #073763; }

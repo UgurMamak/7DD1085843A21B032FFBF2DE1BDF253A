@@ -10865,11 +10865,22 @@ jQuery(document).ready(function ($) {
   }
 
   function renderDatePicker() {
-    flatpickr(".primary-datepicker input", {
+    var entryDatePicker = flatpickr($('.primary-datepicker input[name="entryDate"]')[0], {
       allowInput: true,
       minDate: "today",
       disableMobile: "true",
-      // maxDate: new Date().fp_incr(14) // 14 days from now
+      onChange: function onChange(selectedDates, dateStr, instance) {
+        $(instance.input).valid();
+      },
+      onClose: function onClose(selectedDates, dateStr, instance) {
+        console.log(selectedDates, dateStr, instance);
+        releaseDatePicker.set("minDate", new Date(dateStr).fp_incr(1));
+      }
+    });
+    var releaseDatePicker = flatpickr($('.primary-datepicker input[name="releaseDate"]')[0], {
+      allowInput: true,
+      minDate: "today",
+      disableMobile: "true",
       onChange: function onChange(selectedDates, dateStr, instance) {
         $(instance.input).valid();
       }
@@ -10917,10 +10928,12 @@ jQuery(document).ready(function ($) {
         activeStep: 1,
         stepCount: '',
         form: formElement(),
-        result: false
+        result: false,
+        hotelData: window.hotelData
       };
     }
 
+    console.log(window.hotelData);
     Vue.directive('mask', VueMask.VueMaskDirective);
     Vue.component('modal', {
       template: '#modal-template',
@@ -10979,6 +10992,18 @@ jQuery(document).ready(function ($) {
           console.log("çalışıyor");
           this.$refs.questionModal.close();
           this.$refs.resultModal.open();
+        },
+        selectRadio: function selectRadio(data, event) {
+          this.form[event.target.getAttribute('name')] = data;
+        }
+      },
+      computed: {
+        dateDiff: function dateDiff() {
+          var startDate = new Date(this.form.entryDate);
+          var finishDate = new Date(this.form.releaseDate);
+          var diff = finishDate.getTime() - startDate.getTime(); //var daydiff = diff / (1000 * 60 * 60 * 24);
+
+          return diff / (1000 * 60 * 60 * 24);
         }
       },
       mounted: function mounted() {

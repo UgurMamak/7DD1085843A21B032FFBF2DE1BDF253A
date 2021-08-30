@@ -53,8 +53,13 @@
       .card-holder-name {
         margin-bottom: 10px;
         font-size: 16px;
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
 
         @include responsive(min-md) {
+          max-width: 255px;
           font-size: 20px;
         }
 
@@ -119,23 +124,6 @@
       background-color: #ffffff;
       padding: 0 5px;
       font-weight: bold;
-    }
-
-
-    .input-group {
-      display: flex;
-
-      .field-desc {
-        margin-bottom: 10px;
-      }
-
-      .input-control {
-        width: 100%;
-        height: 40px;
-        border-width: 1px;
-        border-color: $color-deep-sapphire;
-      }
-
     }
   }
 

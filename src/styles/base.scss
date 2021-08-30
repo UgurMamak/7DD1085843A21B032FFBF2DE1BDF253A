@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-
 .primary-btn {
   padding: 10px;
   border-radius: 6px;
@@ -16,7 +15,6 @@
   &:hover {
     background-color: $color-denim;
   }
-
 }
 
 .primary-datepicker {
@@ -30,11 +28,22 @@
   .icon{
     padding-left: 10px;
   }
-
 }
 
 .input-group {
   margin-bottom: 16px;
+  display: flex;
+
+  .field-desc {
+    margin-bottom: 10px;
+  }
+
+  .input-control {
+    width: 100%;
+    height: 40px;
+    border-width: 1px;
+    border-color: $color-deep-sapphire;
+  }
 
   &.has-error {
     .primary-datepicker {
@@ -129,21 +138,4 @@
     text-align: center;
   }
 }
-
-
-.choices {
-  width: 100%;
-  margin-bottom: 16px;
-
-  .choices__inner {
-  }
-
-  .choices__input{
-    display: block !important;
-    visibility: hidden;
-    position: absolute;
-  }
-
-}
-
 
