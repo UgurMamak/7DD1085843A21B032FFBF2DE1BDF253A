@@ -55,8 +55,7 @@
         </div>
         <div class="step-content type-colored summary-section">
             <div class="summary-title">
-                <span class="type-big">Bosphorus Hotel</span>
-                <span>(İstanbul)</span>
+                <span class="type-big">{{form.hotelName}}</span>
             </div>
             <div class="row">
                 <div class="col-md-6 col-12">
@@ -207,8 +206,7 @@
             <div class="step-content type-colored summary-section">
                 <div class="cart-info">
                     <div class="summary-title">
-                        <span class="type-big">Bosphorus Hotel</span>
-                        <span>(İstanbul)</span>
+                        <span class="type-big">{{form.hotelName}}</span>
                     </div>
                     <span class="cart-info-title">Giriş Tarihi: </span><span class="cart-info-value">{{form.entryDate}}-</span>
                     <span class="cart-info-title">Çıkış Tarihi: </span><span class="cart-info-value">{{form.releaseDate}}-</span>
@@ -394,7 +392,7 @@
                                                data-msg-required="Bu alan zorunludur.">
                                     </div>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-md-8 col-12">
                                     <label for="">Kart Son Kullanma Tarihi</label>
                                     <div class="d-flex">
                                         <div class="input-group">
@@ -421,17 +419,17 @@
                                                     data-placeholder="Yıl" data-msg-required="Bu alan zorunludur."
                                                     required>
                                                 <option></option>
-                                                <option value="1">2021</option>
-                                                <option value="2">2022</option>
-                                                <option value="3">2023</option>
-                                                <option value="4">2024</option>
-                                                <option value="5">2025</option>
-                                                <option value="6">2026</option>
+                                                <option value="21">2021</option>
+                                                <option value="22">2022</option>
+                                                <option value="23">2023</option>
+                                                <option value="24">2024</option>
+                                                <option value="25">2025</option>
+                                                <option value="26">2026</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-md-4 col-12">
                                     <div class="input-group">
                                         <label class="field-desc" for="cvv">CVV</label>
                                         <input class="input-control" type="text" id="cvv" name="cvv" v-model="form.cvv" v-mask="'###'"
@@ -446,8 +444,7 @@
                 <div class="col-lg-5 col-12">
                     <div class="step-content type-colored summary-section">
                         <div class="summary-title">
-                            <span class="type-big">Bosphorus Hotel</span>
-                            <span>(İstanbul)</span>
+                            <span class="type-big">{{form.hotelName}}</span>
                         </div>
                         <div class="row">
                             <div class="col-md-6 col-12">

@@ -62,6 +62,11 @@
         text-align: center;
         font-weight: bold;
         color: $color-stack;
+        font-size: 13px;
+
+        @include responsive(min-md) {
+          font-size: 16px;
+        }
       }
     }
   }

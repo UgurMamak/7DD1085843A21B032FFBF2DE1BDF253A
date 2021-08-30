@@ -160,7 +160,11 @@
       width: 120px;
       text-align: center;
       font-weight: bold;
-      color: #9fa09f; }
+      color: #9fa09f;
+      font-size: 13px; }
+      @media (min-width: 768px) {
+        .primary-step-wrapper .step-header .item span {
+          font-size: 16px; } }
 
 .primary-step-wrapper .step-body .item-title {
   color: #073763; }
